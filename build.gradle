@@ -1,0 +1,30 @@
+plugins {
+    id "java"
+    id "com.github.johnrengelman.shadow" version "2.0.1"
+}
+
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: "org.komamitsu", name: "fluency", version: "1.4.0"
+    compile 'org.slf4j:slf4j-api:1.7.22'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'sample.FluencyDummer'
+    }
+}
+
+shadowJar {
+    manifest {
+        attributes 'Main-Class': 'sample.FluencyDummer'
+    }
+}
